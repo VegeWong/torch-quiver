@@ -44,7 +44,9 @@ def create_extension(with_cuda=False):
     if with_cuda:
         cuda_home = find_cuda()
         include_dirs += [os.path.join(cuda_home, 'include')]
+        include_dirs += ["/home/hanjing/nccl/build/include"]
         library_dirs += [os.path.join(cuda_home, 'lib64')]
+        library_dirs += ["/home/hanjing/nccl/build/lib"]
         srcs += glob.glob('srcs/cpp/src/quiver/cuda/*.cpp')
         srcs += glob.glob('srcs/cpp/src/quiver/cuda/*.cu')
         extra_cxx_flags += ['-DHAVE_CUDA']
